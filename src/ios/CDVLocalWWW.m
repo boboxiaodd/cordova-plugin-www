@@ -9,7 +9,7 @@
     NSString *srcPath = [[[NSBundle mainBundle] URLForResource:@"www" withExtension:@"zip"] absoluteString];
     NSString *zipPath = [[NSURL URLWithString:srcPath] path];
     NSArray *directoryPaths = [fileManager URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask];
-    NSURL *distPath = [[directoryPaths firstObject] URLByAppendingPathComponent:@"/"];
+    NSURL *distPath = [directoryPaths firstObject];
     NSString *destinationPath = [distPath path];
     NSError *error;
     if([SSZipArchive unzipFileAtPath:zipPath toDestination:destinationPath overwrite:YES password:nil error:&error delegate:nil]) {
@@ -17,7 +17,6 @@
     } else {
         NSLog(@"%@ - %@", @"Error occurred during unzipping", [error localizedDescription]);
     }
-    NSLog(@"re location: %@",[distPath absoluteString]);
 }
 
 @end
