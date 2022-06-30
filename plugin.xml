@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-plugin-www" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0">
+    <name>CDVLocalWWW</name>
+    <js-module name="CDVLocalWWW" src="www/www.js">
+        <clobbers target="CDVLocalWWW" />
+    </js-module>
+    <platform name="ios">
+        <config-file parent="/*" target="config.xml">
+            <feature name="CDVLocalWWW">
+                <param name="ios-package" value="CDVLocalWWW" />
+                <param name="onload" value="true" />
+            </feature>
+        </config-file>
+        <header-file src="src/ios/CDVLocalWWW.h" />
+        <source-file src="src/ios/CDVLocalWWW.m" />
+    </platform>
+    <dependency id="cordova-plugin-ionic-keyboard" version="2.2.0" />
+    <dependency id="cordova-plugin-ionic-webview" version="5.0.0" />
+    <dependency id="cordova-plugin-file" version="7.0.0" />
+    <dependency id="cordova-plugin-zip" version="3.1.0" />
+</plugin>
