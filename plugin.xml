@@ -6,7 +6,6 @@
     </js-module>
     <platform name="ios">
         <config-file parent="/*" target="config.xml">
-            <preference name="DisableDeploy" value="false" />
             <content src="ionic://localhost/www/index.html" />
             <feature name="CDVLocalWWW">
                 <param name="ios-package" value="CDVLocalWWW" />
