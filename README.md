@@ -19,6 +19,8 @@ iOS  录制成 m4a , Android 录制成 acc
 增加 `app_version` `bundle_id` `build_version`
 
 #### 7、WKWebView （第三方）`https://github.com/boboxiaodd/cordova-plugin-ionic-webview`
+更改初始位置 到 `.../Libaray/NoCloud/www`
+
 #### 8、Keyboard （第三方）`cordova-plugin-ionic-keyboard`
 #### 9、对话框 (官方) `cordova-plugin-dialogs`
 #### 10、状态栏 (官方) `cordova-plugin-statusbar`
