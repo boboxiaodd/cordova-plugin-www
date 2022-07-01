@@ -5,11 +5,12 @@
 @implementation CDVLocalWWW
 - (void)pluginInitialize
 {
+    NSLog(@"--------------- init CDVLocalWWWW --------");
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSString *srcPath = [[[NSBundle mainBundle] URLForResource:@"www" withExtension:@"zip"] absoluteString];
     NSString *zipPath = [[NSURL URLWithString:srcPath] path];
-    NSArray *directoryPaths = [fileManager URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask];
-    NSURL *distPath = [[directoryPaths firstObject] URLByAppendingPathComponent:@"www"];
+    NSArray *directoryPaths = [fileManager URLsForDirectory:NSLibraryDirectory inDomains:NSUserDomainMask];
+    NSURL *distPath = [[directoryPaths firstObject] URLByAppendingPathComponent:@"NoCloud/ionic_built_snapshots/www"];
     NSString *destinationPath = [distPath path];
     NSError *error;
     if([SSZipArchive unzipFileAtPath:zipPath toDestination:destinationPath overwrite:YES password:nil error:&error delegate:nil]) {
@@ -17,9 +18,6 @@
     } else {
         NSLog(@"%@ - %@", @"Error occurred during unzipping", [error localizedDescription]);
     }
-    NSUserDefaults * prefs = [NSUserDefaults standardUserDefaults];
-    [prefs setObject:@"www" forKey: @"serverBasePath"];
-    [prefs synchronize];
 }
 
 @end
