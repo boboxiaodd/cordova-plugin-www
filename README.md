@@ -1,4 +1,4 @@
-#Cordova App 整理
+# Cordova App 整理
 
 
 iOS本地目录管理： `https://github.com/boboxiaodd/cordova-plugin-www`
@@ -17,17 +17,17 @@ iOS本地目录管理： `https://github.com/boboxiaodd/cordova-plugin-www`
 iOS  录制成 m4a , Android 录制成 acc
 声音播放，支持http
 
-7、设备信息 （官方） `https://github.com/boboxiaodd/cordova-plugin-device`
+6、设备信息 （官方） `https://github.com/boboxiaodd/cordova-plugin-device`
 
-8、InAppBrowser （官方）`cordova-plugin-inappbrowser`
+7、InAppBrowser （官方）`cordova-plugin-inappbrowser`
 
 
-9、zego/美颜 插件 (重写)
+8、zego/美颜 插件 (重写)
 
-10、聊天/输入框 插件 (重写)
+9、聊天/输入框 插件 (重写)
 iOS：原生创建一个透明的输入框，根据h5的位置定位覆盖
 Android：直接使用h5
 
-11、支付插件 （重写）
+10、支付插件 （重写）
 
 
