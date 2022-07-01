@@ -19,10 +19,24 @@ iOS  录制成 m4a , Android 录制成 acc
 增加 `app_version` `bundle_id` `build_version`
 
 #### 7、WKWebView （第三方）`cordova-plugin-ionic-keyboard` `cordova-plugin-ionic-webview`
+#### 8、对话框 (官方) `cordova-plugin-dialogs`
+#### 9、状态栏 (官方) `cordova-plugin-statusbar`
 
 # 重写插件
 
 #### 1、iOS本地目录管理： `https://github.com/boboxiaodd/cordova-plugin-www`
+依赖 `cordova-plugin-zip`，`cordova-plugin-file`
+
+`AppDelegate.m` 需增加配置，配合 `CDVIonicKeyboard` 设置`serverBasePath`
+```objc
+    NSString * versionCode = [[NSBundle mainBundle] infoDictionary][@"CFBundleVersion"];
+    NSString * versionName = [[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"];
+    NSUserDefaults * prefs = [NSUserDefaults standardUserDefaults];
+    [prefs setObject:@"www" forKey: @"serverBasePath"];
+    [prefs setObject:versionCode forKey:LAST_BINARY_VERSION_CODE];
+    [prefs setObject:versionName forKey:LAST_BINARY_VERSION_NAME];
+    [prefs synchronize];
+```
 
 #### 2、相册/视频选择 （重写）
 
