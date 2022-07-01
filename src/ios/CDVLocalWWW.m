@@ -10,7 +10,7 @@
     NSString *srcPath = [[[NSBundle mainBundle] URLForResource:@"www" withExtension:@"zip"] absoluteString];
     NSString *zipPath = [[NSURL URLWithString:srcPath] path];
     NSArray *directoryPaths = [fileManager URLsForDirectory:NSLibraryDirectory inDomains:NSUserDomainMask];
-    NSURL *distPath = [[directoryPaths firstObject] URLByAppendingPathComponent:@"NoCloud/ionic_built_snapshots/www"];
+    NSURL *distPath = [[directoryPaths firstObject] URLByAppendingPathComponent:@"NoCloud/www"];
     NSString *destinationPath = [distPath path];
     NSError *error;
     if([SSZipArchive unzipFileAtPath:zipPath toDestination:destinationPath overwrite:YES password:nil error:&error delegate:nil]) {
