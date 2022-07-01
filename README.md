@@ -14,8 +14,8 @@ iOS本地目录管理： `https://github.com/boboxiaodd/cordova-plugin-www`
 4、网络状态插件 （官方）`cordova-plugin-network-information`
 
 5、录音/播放 插件 （官方）`cordova-plugin-media`
-iOS  录制成 m4a , Android 录制成 acc
-声音播放，支持http
+
+iOS  录制成 m4a , Android 录制成 acc 声音播放，支持http
 
 6、设备信息 （官方） `https://github.com/boboxiaodd/cordova-plugin-device`
 
