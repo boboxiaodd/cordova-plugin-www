@@ -18,6 +18,8 @@ iOS  录制成 m4a , Android 录制成 acc 声音播放，支持http
 ### 6、设备信息 （官方） `https://github.com/boboxiaodd/cordova-plugin-device`
 增加 `app_version` `bundle_id` `build_version`
 
+### 7、WKWebView （第三方）`cordova-plugin-ionic-keyboard` && `cordova-plugin-ionic-webview`
+
 ### 7、相册/视频选择 （重写）
 
 ### 8、zego/美颜 插件 (重写)
