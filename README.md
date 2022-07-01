@@ -3,7 +3,7 @@
 
 ### iOS本地目录管理： `https://github.com/boboxiaodd/cordova-plugin-www`
 
-### 1、相册/视频选择 （重写）
+### 1、InAppBrowser （官方）`cordova-plugin-inappbrowser`
 
 ### 2、网络请求 （第三方）`cordova-plugin-advanced-http`
 
@@ -18,7 +18,7 @@ iOS  录制成 m4a , Android 录制成 acc 声音播放，支持http
 ### 6、设备信息 （官方） `https://github.com/boboxiaodd/cordova-plugin-device`
 增加 `app_version` `bundle_id` `build_version`
 
-### 7、InAppBrowser （官方）`cordova-plugin-inappbrowser`
+### 7、相册/视频选择 （重写）
 
 ### 8、zego/美颜 插件 (重写)
 
