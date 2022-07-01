@@ -17,6 +17,9 @@
     } else {
         NSLog(@"%@ - %@", @"Error occurred during unzipping", [error localizedDescription]);
     }
+    NSUserDefaults * prefs = [NSUserDefaults standardUserDefaults];
+    [prefs setObject:@"www" forKey: @"serverBasePath"];
+    [prefs synchronize];
 }
 
 @end
