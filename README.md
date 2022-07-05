@@ -30,7 +30,8 @@ iOS  录制成 m4a , Android 录制成 acc
 #### 1、iOS本地目录管理： `https://github.com/boboxiaodd/cordova-plugin-www`
 依赖 `cordova-plugin-zip`，`cordova-plugin-file`
 
-#### 2、相册/视频选择 （重写）
+#### 2、相册/视频选择 （重写完成）
+https://github.com/boboxiaodd/cordova-plugin-photo
 
 #### 3、zego/美颜 插件 (重写)
 
