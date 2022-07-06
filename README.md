@@ -31,9 +31,12 @@ iOS  录制成 m4a , Android 录制成 acc
 依赖 `cordova-plugin-zip`，`cordova-plugin-file`
 
 #### 2、相册/视频选择 （重写）`https://github.com/boboxiaodd/cordova-plugin-photo`
-依赖：`HXPhotoPicker`，已完成
+依赖：`HXPhotoPicker/SDWebImage`，已完成
 
-#### 3、zego/美颜 插件 (重写)
+#### 3、zego/美颜 插件 (重写) `https://github.com/boboxiaodd/cordova-plugin-zego`
+依赖：`Masonry`,`Nama-lite`,`ZegoExpressEngine/Video`
+
+FaceUnity 鉴权文件 `authpack.h` 需手动放入工程
 
 #### 4、聊天/输入框 插件 (重写)
 
@@ -45,4 +48,7 @@ Android：直接使用h5
 #### 5、支付插件 （重写）
 
 #### 6、高德地图插件 (重写)
+
+#### 7、高级选择器 (重写)
+依赖：`BRPickerView`
 
