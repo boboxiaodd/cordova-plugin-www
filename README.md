@@ -45,12 +45,7 @@ FaceUnity 鉴权文件 `authpack.h` 需手动放入工程
 <preference name="zego.appid" value="111111111" />
 ```
 
-#### 4、聊天/输入框 插件 (重写)
-
-iOS：原生创建一个透明的输入框，根据h5的位置定位覆盖
-
-Android：直接使用h5
-
+#### 4、聊天/输入框 插件 (重写) `https://github.com/boboxiaodd/cordova-plugin-inputbar`
 
 #### 5、支付插件 （重写）
 
