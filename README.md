@@ -6,6 +6,9 @@
 #### 2、网络请求 （第三方）`cordova-plugin-advanced-http`
 
 #### 3、权限检测插件 （第三方）`cordova-plugins-diagnostic`
+```xml
+<preference name="cordova.plugins.diagnostic.modules" value="LOCATION CAMERA MICROPHONE" />
+```
 
 #### 4、网络状态插件 （官方）`cordova-plugin-network-information`
 
@@ -37,6 +40,10 @@ iOS  录制成 m4a , Android 录制成 acc
 依赖：`Masonry`,`Nama-lite`,`ZegoExpressEngine/Video`
 
 FaceUnity 鉴权文件 `authpack.h` 需手动放入工程
+```xml
+<preference name="zego.sign" value="00000000000000000000000000000000000000000000000" />
+<preference name="zego.appid" value="111111111" />
+```
 
 #### 4、聊天/输入框 插件 (重写)
 
