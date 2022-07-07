@@ -27,11 +27,22 @@ iOS  录制成 m4a , Android 录制成 acc
 #### 8、Keyboard （第三方）`cordova-plugin-ionic-keyboard`
 #### 9、对话框 (官方) `cordova-plugin-dialogs`
 #### 10、状态栏 (官方) `cordova-plugin-statusbar`
+#### 11、推送插件（第三方）`cordova-plugin-apns-push`
+
 
 # 重写插件
 
 #### 1、iOS本地目录管理： `https://github.com/boboxiaodd/cordova-plugin-www`
 依赖 `cordova-plugin-zip`，`cordova-plugin-file`
+允许非 `https` 访问
+```xml
+<config-file target="*-Info.plist" parent="NSAppTransportSecurity">
+    <dict>
+        <key>NSAllowsArbitraryLoads</key>
+        <true/>
+    </dict>
+</config-file>
+```
 
 #### 2、相册/视频选择 （重写）`https://github.com/boboxiaodd/cordova-plugin-photo`
 依赖：`HXPhotoPicker/SDWebImage`，已完成
