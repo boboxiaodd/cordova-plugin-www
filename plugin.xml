@@ -6,7 +6,7 @@
     </js-module>
     <platform name="ios">
         <config-file parent="/*" target="config.xml">
-            <access origin="*" />
+            <access origin="*" requires-forward-secrecy="false" />
             <content src="ionic://localhost/www/index.html" />
             <feature name="CDVLocalWWW">
                 <param name="ios-package" value="CDVLocalWWW" />
