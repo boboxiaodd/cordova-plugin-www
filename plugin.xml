@@ -5,7 +5,7 @@
         <clobbers target="CDVLocalWWW" />
     </js-module>
     <platform name="ios">
-        <config-file target="*-Info.plist" parent="NSAppTransportSecurity">
+        <config-file target="*-Info.plist" parent="NSAppTransportSecurity" mode="merge">
             <dict>
                 <key>NSAllowsArbitraryLoads</key>
                 <true/>
