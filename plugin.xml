@@ -12,7 +12,7 @@
             </dict>
         </config-file>
         <config-file parent="/*" target="config.xml">
-            <access origin='*' allows-arbitrary-loads-for-media='true' allows-arbitrary-loads-in-web-content='true' allows-local-networking='true' />
+            <access origin='*' />
             <content src="ionic://localhost/www/index.html" />
             <feature name="CDVLocalWWW">
                 <param name="ios-package" value="CDVLocalWWW" />
