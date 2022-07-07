@@ -5,12 +5,12 @@
         <clobbers target="CDVLocalWWW" />
     </js-module>
     <platform name="ios">
-        <config-file target="*-Info.plist" parent="NSAppTransportSecurity" mode="merge">
+        <edit-config target="*-Info.plist" parent="NSAppTransportSecurity" mode="merge">
             <dict>
                 <key>NSAllowsArbitraryLoads</key>
                 <true/>
             </dict>
-        </config-file>
+        </edit-config>
         <config-file parent="/*" target="config.xml">
             <content src="ionic://localhost/www/index.html" />
             <feature name="CDVLocalWWW">
