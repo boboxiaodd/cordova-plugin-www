@@ -60,6 +60,10 @@ FaceUnity 鉴权文件 `authpack.h` 需手动放入工程
 依赖：`https://github.com/boboxiaodd/Mp3Recorder` 已完成
 
 #### 5、支付宝支付插件 （重写）
+需要指定URL_SCHEME，用于支付完成后跳回APP
+```sh
+cordova plugin add https://github.com/boboxiaodd/cordova-plugin-zapp --variable URL_SCHEME=xxxxxxx
+```
 
 #### 6、高德地图插件 (重写)
 
