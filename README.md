@@ -52,8 +52,8 @@ iOS  录制成 m4a , Android 录制成 acc
 
 FaceUnity 鉴权文件 `authpack.h` 需手动放入工程，需在`config.xml`增加配置
 ```xml
-<preference name="zego.sign" value="00000000000000000000000000000000000000000000000" />
-<preference name="zego.appid" value="111111111" />
+<preference name="zego.sign" value="[ZEGO SercetKey]" />
+<preference name="zego.appid" value="[ZEGO APPID]" />
 ```
 
 #### 4、聊天/输入框 插件 (重写) `https://github.com/boboxiaodd/cordova-plugin-inputbar`
