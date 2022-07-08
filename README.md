@@ -70,5 +70,9 @@ cordova plugin add https://github.com/boboxiaodd/cordova-plugin-zapp --variable 
 #### 7、高级选择器 (重写)
 依赖：`BRPickerView`
 
-#### 8、友盟插件 (重写)
+#### 8、友盟插件 (重写) `https://github.com/boboxiaodd/cordova-plugin-umeng`
 包含一键登录
+```xml
+    <preference name="umeng.key" value="友盟统计/监控 KEY" />
+    <preference name="umeng.verify" value="一键登录KEY" />
+```
