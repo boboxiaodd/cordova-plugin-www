@@ -59,7 +59,7 @@ FaceUnity 鉴权文件 `authpack.h` 需手动放入工程
 #### 4、聊天/输入框 插件 (重写) `https://github.com/boboxiaodd/cordova-plugin-inputbar`
 依赖：`https://github.com/boboxiaodd/Mp3Recorder` 已完成
 
-#### 5、支付插件 （重写）
+#### 5、支付宝支付插件 （重写）
 
 #### 6、高德地图插件 (重写)
 
