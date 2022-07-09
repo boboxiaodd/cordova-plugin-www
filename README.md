@@ -28,6 +28,7 @@ iOS  录制成 m4a , Android 录制成 acc
 #### 9、对话框 (官方) `cordova-plugin-dialogs`
 #### 10、状态栏 (官方) `cordova-plugin-statusbar`
 #### 11、推送插件（第三方）`cordova-plugin-apns-push`
+#### 12、视频播放器 `https://github.com/nchutchind/cordova-plugin-streaming-media`
 
 
 # 重写插件
