@@ -81,4 +81,6 @@ cordova plugin add https://github.com/boboxiaodd/cordova-plugin-zapp --variable 
     <preference name="umeng.key" value="友盟统计/监控 KEY" />
     <preference name="umeng.verify" value="一键登录KEY" />
 ```
-#### 9、视频播放器（重写）
+#### 9、视频播放器（已重写）`https://github.com/boboxiaodd/cordova-plugin-videoplayer`
+
+#### 10、获取IDFA
