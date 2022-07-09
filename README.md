@@ -65,7 +65,11 @@ FaceUnity 鉴权文件 `authpack.h` 需手动放入工程，需在`config.xml`�
 cordova plugin add https://github.com/boboxiaodd/cordova-plugin-zapp --variable URL_SCHEME=xxxxxxx
 ```
 
-#### 6、高德地图插件 (重写)
+#### 6、高德地图插件 (已重写) `https://github.com/boboxiaodd/cordova-plugin-amap`
+需在`config.xml`增加配置
+```xml
+    <preference name="amap.key" value="高德API_KEY" />
+```
 
 #### 7、高级选择器 (已重写) `https://github.com/boboxiaodd/cordova-plugin-picker`
 依赖：`BRPickerView`
