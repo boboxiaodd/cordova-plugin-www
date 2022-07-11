@@ -28,7 +28,9 @@ iOS  录制成 m4a , Android 录制成 acc
 #### 9、对话框 (官方) `cordova-plugin-dialogs`
 #### 10、状态栏 (官方) `cordova-plugin-statusbar`
 #### 11、推送插件（第三方）`cordova-plugin-apns-push`
-
+#### 12、视频播放器 (第三方改) `https://github.com/boboxiaodd/cordova-plugin-streaming-media`
+#### 13、IDFA/AAID (第三方）`cordova-plugin-idfa`
+#### 14、SQLite插件（第三方）`cordova-sqlite-storage`
 
 # 重写插件
 
@@ -44,24 +46,43 @@ iOS  录制成 m4a , Android 录制成 acc
 </config-file>
 ```
 
-#### 2、相册/视频选择 （重写）`https://github.com/boboxiaodd/cordova-plugin-photo`
+#### 2、相册/视频选择 （已重写）`https://github.com/boboxiaodd/cordova-plugin-photo`
 依赖：`HXPhotoPicker/SDWebImage`，已完成
 
-#### 3、zego/美颜 插件 (重写) `https://github.com/boboxiaodd/cordova-plugin-zego`
+#### 3、zego/美颜 插件 (已重写) `https://github.com/boboxiaodd/cordova-plugin-zego`
 依赖：`Masonry`,`Nama-lite`,`ZegoExpressEngine/Video`
 
-FaceUnity 鉴权文件 `authpack.h` 需手动放入工程
+FaceUnity 鉴权文件 `authpack.h` 需手动放入工程，需在`config.xml`增加配置
 ```xml
-<preference name="zego.sign" value="00000000000000000000000000000000000000000000000" />
-<preference name="zego.appid" value="111111111" />
+<preference name="zego.sign" value="[ZEGO SercetKey]" />
+<preference name="zego.appid" value="[ZEGO APPID]" />
 ```
 
-#### 4、聊天/输入框 插件 (重写) `https://github.com/boboxiaodd/cordova-plugin-inputbar`
+#### 4、聊天/输入框 插件 (已重写) `https://github.com/boboxiaodd/cordova-plugin-inputbar`
+依赖：`https://github.com/boboxiaodd/Mp3Recorder` 已完成
 
-#### 5、支付插件 （重写）
+#### 5、支付宝支付插件 （已重写）
+需要指定URL_SCHEME，用于支付完成后跳回APP
+```sh
+cordova plugin add https://github.com/boboxiaodd/cordova-plugin-zapp --variable URL_SCHEME=xxxxxxx
+```
 
-#### 6、高德地图插件 (重写)
+#### 6、高德地图插件 (已重写) `https://github.com/boboxiaodd/cordova-plugin-amap`
+需在`config.xml`增加配置
+```xml
+    <preference name="amap.key" value="高德API_KEY" />
+```
 
-#### 7、高级选择器 (重写)
+#### 7、高级选择器 (已重写) `https://github.com/boboxiaodd/cordova-plugin-picker`
 依赖：`BRPickerView`
 
+#### 8、友盟插件 (已重写) `https://github.com/boboxiaodd/cordova-plugin-umeng`
+包含一键登录，需在`config.xml`增加配置
+```xml
+    <preference name="umeng.key" value="友盟统计/监控 KEY" />
+    <preference name="umeng.verify" value="一键登录KEY" />
+```
+#### 9、视频播放器（已重写）`https://github.com/boboxiaodd/cordova-plugin-videoplayer`
+
+#### 10、actionsheet（已重写）`https://github.com/boboxiaodd/cordova-plugin-alertview`
+依赖 `LEEAlert`
