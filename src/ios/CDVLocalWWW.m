@@ -75,12 +75,10 @@
     if(safeBottom > 0.0){
         is_iphonex = true;
     }
-    NSDictionary * infoDic = NSBundle.mainBundle.infoDictionary;
     [self send_event:command withMessage:@{
         @"is_debug":@(is_debug),
         @"is_iphonex":@(is_iphonex),
         @"auth": [self settingForKey:@"authkey"],
-        @"version": [infoDic valueForKey:@"CFBundleVersion"]
     } Alive:NO State:YES];
 }
 
