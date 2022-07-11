@@ -1,6 +1,11 @@
 #import <Cordova/CDV.h>
 #import "CDVLocalWWW.h"
 #import "SSZipArchive.h"
+#import <MBProgressHUD/MBProgressHUD.h>
+
+@interface CDVLocalWWW()
+@property (nonatomic,strong) MBProgressHUD* hud;
+@end
 
 @implementation CDVLocalWWW
 - (void)pluginInitialize
@@ -18,6 +23,30 @@
     } else {
         NSLog(@"%@ - %@", @"Error occurred during unzipping", [error localizedDescription]);
     }
+}
+//进度条
+- (void)showProgress:(CDVInvokedUrlCommand *)command
+{
+    if(_hud) return;
+    NSDictionary *options = [command.arguments objectAtIndex: 0];
+    _hud = [MBProgressHUD showHUDAddedTo:self.viewController.view animated:YES];
+    _hud.removeFromSuperViewOnHide = YES;
+    _hud.completionBlock = ^{
+        self->_hud = nil;
+    };
+    _hud.mode = MBProgressHUDModeAnnularDeterminate;
+    _hud.label.text = [options objectForKey:@"title"] ?: @"加载中...";
+}
+- (void)setProgress:(CDVInvokedUrlCommand *)command
+{
+    if(!_hud) return;
+    NSDictionary *options = [command.arguments objectAtIndex: 0];
+    _hud.progress = [[options objectForKey:@"progress"] floatValue] ?: 0.0;
+}
+- (void)hideProgress:(CDVInvokedUrlCommand *)command
+{
+    if(!_hud) return;
+    [_hud hideAnimated:YES];
 }
 
 @end
