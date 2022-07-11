@@ -1,5 +1,11 @@
 const exec = require('cordova/exec');
+var channel = require('cordova/channel');
+channel.createSticky('onCordovaWWWReady');
+channel.waitForInitialization('onCordovaWWWWReady');
 const CDVLocalWWW = {
+    auth:"",
+    is_debug:false,
+    is_iphonex:true,
     showProgress :function (options){
         exec(null, null, 'CDVLocalWWW','showProgress',[options]);
     },
@@ -16,4 +22,12 @@ const CDVLocalWWW = {
         exec(success, null, 'CDVLocalWWW','goURL',[options]);
     }
 };
+channel.onCordovaReady.subscribe(function () {
+    exec(function(info) {
+        CDVLocalWWW.is_debug   = info.is_debug;
+        CDVLocalWWW.is_iphonex = info.is_iphonex;
+        CDVLocalWWW.auth = info.auth;
+        channel.onCordovaWWWWReady.fire();
+    }, null, "CDVLocalWWW", "getSystemInfo", []);
+});
 module.exports = CDVLocalWWW;

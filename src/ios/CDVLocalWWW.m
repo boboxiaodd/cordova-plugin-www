@@ -63,6 +63,32 @@
     }];
 }
 
+- (void)getSystemInfo:(CDVInvokedUrlCommand*)command
+{
+    BOOL is_debug = false;
+    BOOL is_iphonex = false;
+
+    #ifdef DEBUG
+        is_debug = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK  messageAsBool:(true)];
+    #endif
+    CGFloat safeBottom =  UIApplication.sharedApplication.keyWindow.safeAreaInsets.bottom;
+    if(safeBottom > 0.0){
+        is_iphonex = true;
+    }
+    NSDictionary * infoDic = NSBundle.mainBundle.infoDictionary;
+    [self send_event:command withMessage:@{
+        @"is_debug":@(is_debug),
+        @"is_iphonex":@(is_iphonex),
+        @"auth": [self settingForKey:@"authkey"],
+        @"version": [infoDic valueForKey:@"CFBundleVersion"]
+    } Alive:NO State:YES];
+}
+
+- (id)settingForKey:(NSString*)key
+{
+    return [self.commandDelegate.settings objectForKey:[key lowercaseString]];
+}
+
 - (void)send_event:(CDVInvokedUrlCommand *)command withMessage:(NSDictionary *)message Alive:(BOOL)alive State:(BOOL)state{
     CDVPluginResult* res = [CDVPluginResult resultWithStatus: (state ? CDVCommandStatus_OK : CDVCommandStatus_ERROR) messageAsDictionary:message];
     if(alive) [res setKeepCallbackAsBool:YES];
