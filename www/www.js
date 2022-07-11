@@ -1,7 +1,19 @@
 const exec = require('cordova/exec');
 const CDVLocalWWW = {
-    update:function (success,fail,option){
-        exec(success,fail,'CDVLocalWWW','update',[option]);
+    showProgress :function (options){
+        exec(null, null, 'CDVLocalWWW','showProgress',[options]);
+    },
+    setProgress : function (options){
+        exec(null, null, 'CDVLocalWWW','setProgress',[options]);
+    },
+    hideProgress : function (){
+        exec(null, null, 'CDVLocalWWW','hideProgress',[]);
+    },
+    goSetting : function (){
+        exec(null, null, 'CDVLocalWWW','goSetting',[]);
+    },
+    goURL : function (success,options){
+        exec(success, null, 'CDVLocalWWW','goURL',[options]);
     }
 };
 module.exports = CDVLocalWWW;

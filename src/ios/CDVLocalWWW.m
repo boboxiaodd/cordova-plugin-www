@@ -49,4 +49,24 @@
     [_hud hideAnimated:YES];
 }
 
+-(void) goSetting:(CDVInvokedUrlCommand *)command
+{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString] options:@{} completionHandler:nil];
+}
+-(void) goURL:(CDVInvokedUrlCommand *)command
+{
+    NSDictionary *options = [command.arguments objectAtIndex: 0];
+    NSString *urlstr = [options valueForKey:@"url"];
+    NSURL *url = [NSURL URLWithString:urlstr];
+    [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:^(BOOL res){
+        [self send_event:command withMessage:@{@"success":@"success"} Alive:NO State:YES];
+    }];
+}
+
+- (void)send_event:(CDVInvokedUrlCommand *)command withMessage:(NSDictionary *)message Alive:(BOOL)alive State:(BOOL)state{
+    CDVPluginResult* res = [CDVPluginResult resultWithStatus: (state ? CDVCommandStatus_OK : CDVCommandStatus_ERROR) messageAsDictionary:message];
+    if(alive) [res setKeepCallbackAsBool:YES];
+    [self.commandDelegate sendPluginResult: res callbackId: command.callbackId];
+}
+
 @end
