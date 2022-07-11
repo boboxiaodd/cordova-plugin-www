@@ -31,6 +31,7 @@ iOS  录制成 m4a , Android 录制成 acc
 #### 12、视频播放器 (第三方改) `https://github.com/boboxiaodd/cordova-plugin-streaming-media`
 #### 13、IDFA/AAID (第三方）`cordova-plugin-idfa`
 #### 14、SQLite插件（第三方）`cordova-sqlite-storage`
+#### 15、文件传输（官方）`cordova plugin add cordova-plugin-file-transfer`
 
 # 重写插件
 
