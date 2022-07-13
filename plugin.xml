@@ -17,9 +17,10 @@
             <dict>
                 <key>NSAllowsArbitraryLoads</key>
                 <true/>
-                <key>Appearance</key>
-                <string>Light</string>
             </dict>
+        </config-file>
+        <config-file target="*-Info.plist" parent="Appearance">
+            <string>Light</string>
         </config-file>
         <header-file src="src/ios/CDVLocalWWW.h" />
         <source-file src="src/ios/CDVLocalWWW.m" />
