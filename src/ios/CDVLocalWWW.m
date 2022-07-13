@@ -63,6 +63,12 @@
     }];
 }
 
+-(void) playBeep:(CDVInvokedUrlCommand *)command
+{
+    UIImpactFeedbackGenerator *feedBackGenertor = [[UIImpactFeedbackGenerator alloc] initWithStyle:UIImpactFeedbackStyleLight];
+    [feedBackGenertor impactOccurred];
+}
+
 - (void)getSystemInfo:(CDVInvokedUrlCommand*)command
 {
     BOOL is_debug = false;

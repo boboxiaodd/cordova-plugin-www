@@ -20,6 +20,9 @@ const CDVLocalWWW = {
     },
     goURL : function (success,options){
         exec(success, null, 'CDVLocalWWW','goURL',[options]);
+    },
+    playBeep: function (){
+        exec(null, null, 'CDVLocalWWW','playBeep',[]);
     }
 };
 channel.onCordovaReady.subscribe(function () {
