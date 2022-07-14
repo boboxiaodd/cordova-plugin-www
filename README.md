@@ -12,11 +12,8 @@
 
 #### 4、网络状态插件 （官方）`cordova-plugin-network-information`
 
-#### 5、录音/播放 插件 （官方）`cordova-plugin-media`
-
-iOS  录制成 m4a , Android 录制成 acc 
-
-声音播放，支持http
+#### 5、录音/播放 插件 （官方改）`https://github.com/boboxiaodd/cordova-plugin-media`
+声音播放，支持http、支持本地文件
 
 #### 6、设备信息 （官方改） `https://github.com/boboxiaodd/cordova-plugin-device`
 增加 `app_version` `bundle_id` `build_version`
