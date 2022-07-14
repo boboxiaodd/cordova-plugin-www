@@ -1,7 +1,7 @@
 # 现成插件
 包含略微修改的fork
 
-#### 1、InAppBrowser （官方）`cordova-plugin-inappbrowser`
+#### 1、InAppBrowser （官方改）`https://github.com/boboxiaodd/cordova-plugin-inappbrowser`
 
 #### 2、网络请求 （第三方）`cordova-plugin-advanced-http`
 
