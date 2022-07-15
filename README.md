@@ -33,6 +33,21 @@
 # 重写插件
 
 #### 1、iOS本地目录管理： `https://github.com/boboxiaodd/cordova-plugin-www`
+修改 `**CordovaRoot**/platform/ios/**ProjectRoot**/Scripts/copy-www-build-step.sh` 
+```bash
+SRC_DIR="www"
+DST_DIR="$BUILT_PRODUCTS_DIR/$FULL_PRODUCT_NAME"
+
+cd $SRCROOT
+zip -r www.zip www
+cp -f www.zip "${SRCROOT}/${PROJECT_NAME}/Resources/"
+
+# Copy the config.xml file.
+cp -f "${PROJECT_FILE_PATH%.xcodeproj}/config.xml" "$DST_DIR"
+
+IFS=$ORIG_IFS
+```
+
 依赖 `cordova-plugin-zip`，`cordova-plugin-file`
 允许非 `https` 访问
 ```xml
