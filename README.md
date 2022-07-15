@@ -5,7 +5,7 @@
 
 #### 2、网络请求 （第三方）`cordova-plugin-advanced-http`
 
-#### 3、权限检测插件 （第三方）`cordova-plugins-diagnostic`
+#### 3、权限检测插件 （第三方）`cordova.plugins.diagnostic`
 ```xml
 <preference name="cordova.plugins.diagnostic.modules" value="LOCATION CAMERA MICROPHONE" />
 ```
