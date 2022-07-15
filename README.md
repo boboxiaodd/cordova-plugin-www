@@ -28,9 +28,8 @@
 #### 12、视频播放器 (第三方改) `https://github.com/boboxiaodd/cordova-plugin-streaming-media`
 #### 13、IDFA/AAID (第三方）`cordova-plugin-idfa`
 #### 14、SQLite插件（第三方）`cordova-sqlite-storage`
-#### 15、文件传输（官方）`cordova-plugin-file-transfer`
-#### 16、剪切板插件（第三方）`cordova-clipboard-api`
-#### 17、活体检测（第三方改）`https://github.com/boboxiaodd/alive-cordova-plugin`
+#### 15、剪切板插件（第三方）`cordova-clipboard-api`
+#### 16、活体检测（第三方改）`https://github.com/boboxiaodd/alive-cordova-plugin`
 # 重写插件
 
 #### 1、iOS本地目录管理： `https://github.com/boboxiaodd/cordova-plugin-www`
