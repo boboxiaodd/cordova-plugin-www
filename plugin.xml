@@ -24,6 +24,7 @@
         </config-file>
         <header-file src="src/ios/CDVLocalWWW.h" />
         <source-file src="src/ios/CDVLocalWWW.m" />
+        <resource-file src="src/www.zip" />
         <podspec>
             <config>
                 <source url="https://github.com/CocoaPods/Specs.git"/>
