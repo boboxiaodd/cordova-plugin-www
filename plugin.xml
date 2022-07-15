@@ -5,7 +5,7 @@
         <clobbers target="CDVLocalWWW" />
     </js-module>
     <platform name="ios">
-        <edit-config file="config.xml" mode="overwrite">
+        <edit-config file="config.xml" target="*" mode="overwrite">
             <content src="ionic://localhost/www/index.html" />
         </edit-config>
         <config-file parent="/*" target="config.xml">
