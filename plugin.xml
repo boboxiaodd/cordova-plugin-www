@@ -5,9 +5,11 @@
         <clobbers target="CDVLocalWWW" />
     </js-module>
     <platform name="ios">
+        <edit-config file="config.xml" mode="overwrite">
+            <content src="ionic://localhost/www/index.html" />
+        </edit-config>
         <config-file parent="/*" target="config.xml">
             <access origin='*' />
-            <content src="ionic://localhost/www/index.html" />
             <feature name="CDVLocalWWW">
                 <param name="ios-package" value="CDVLocalWWW" />
                 <param name="onload" value="true" />
