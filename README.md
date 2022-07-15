@@ -1,22 +1,19 @@
 # 现成插件
 包含略微修改的fork
 
-#### 1、InAppBrowser （官方）`cordova-plugin-inappbrowser`
+#### 1、InAppBrowser （官方改）`https://github.com/boboxiaodd/cordova-plugin-inappbrowser`
 
 #### 2、网络请求 （第三方）`cordova-plugin-advanced-http`
 
-#### 3、权限检测插件 （第三方）`cordova-plugins-diagnostic`
+#### 3、权限检测插件 （第三方）`cordova.plugins.diagnostic`
 ```xml
 <preference name="cordova.plugins.diagnostic.modules" value="LOCATION CAMERA MICROPHONE" />
 ```
 
 #### 4、网络状态插件 （官方）`cordova-plugin-network-information`
 
-#### 5、录音/播放 插件 （官方）`cordova-plugin-media`
-
-iOS  录制成 m4a , Android 录制成 acc 
-
-声音播放，支持http
+#### 5、录音/播放 插件 （官方改）`https://github.com/boboxiaodd/cordova-plugin-media`
+声音播放，支持http、支持本地文件
 
 #### 6、设备信息 （官方改） `https://github.com/boboxiaodd/cordova-plugin-device`
 增加 `app_version` `bundle_id` `build_version`
@@ -31,11 +28,26 @@ iOS  录制成 m4a , Android 录制成 acc
 #### 12、视频播放器 (第三方改) `https://github.com/boboxiaodd/cordova-plugin-streaming-media`
 #### 13、IDFA/AAID (第三方）`cordova-plugin-idfa`
 #### 14、SQLite插件（第三方）`cordova-sqlite-storage`
-#### 15、文件传输（官方）`cordova plugin add cordova-plugin-file-transfer`
-#### 16、剪切板插件（第三方）`cordova plugin add cordova-clipboard-api`
+#### 15、剪切板插件（第三方）`cordova-clipboard-api`
+#### 16、活体检测（第三方改）`https://github.com/boboxiaodd/alive-cordova-plugin`
 # 重写插件
 
 #### 1、iOS本地目录管理： `https://github.com/boboxiaodd/cordova-plugin-www`
+修改 `[CordovaRoot]/platform/ios/[ProjectRoot]/Scripts/copy-www-build-step.sh` 
+```bash
+SRC_DIR="www"
+DST_DIR="$BUILT_PRODUCTS_DIR/$FULL_PRODUCT_NAME"
+
+cd $SRCROOT
+zip -r www.zip www
+cp -f www.zip "${SRCROOT}/${PROJECT_NAME}/Resources/"
+
+# Copy the config.xml file.
+cp -f "${PROJECT_FILE_PATH%.xcodeproj}/config.xml" "$DST_DIR"
+
+IFS=$ORIG_IFS
+```
+
 依赖 `cordova-plugin-zip`，`cordova-plugin-file`
 允许非 `https` 访问
 ```xml
