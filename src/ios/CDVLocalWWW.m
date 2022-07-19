@@ -34,7 +34,12 @@
     _hud.completionBlock = ^{
         self->_hud = nil;
     };
-    _hud.mode = MBProgressHUDModeIndeterminate;
+    BOOL is_progress = [[options valueForKey:@"is_progress"] boolValue];
+    if(is_progress){
+        _hud.mode = MBProgressHUDModeDeterminate;
+    }else{
+        _hud.mode = MBProgressHUDModeIndeterminate;
+    }
     _hud.label.text = [options objectForKey:@"title"] ?: @"加载中...";
 }
 - (void)setProgress:(CDVInvokedUrlCommand *)command
