@@ -5,7 +5,7 @@
 
 #### 2、网络请求 （第三方）`cordova-plugin-advanced-http`
 
-#### 3、权限检测插件 （第三方）`cordova.plugins.diagnostic`
+#### 3、权限检测插件 （第三方改）`https://github.com/boboxiaodd/cordova.plugins.diagnostic`
 ```xml
 <preference name="cordova.plugins.diagnostic.modules" value="LOCATION CAMERA MICROPHONE" />
 ```
@@ -30,6 +30,7 @@
 #### 14、SQLite插件（第三方）`cordova-sqlite-storage`
 #### 15、剪切板插件（第三方）`cordova-clipboard-api`
 #### 16、活体检测（第三方改）`https://github.com/boboxiaodd/alive-cordova-plugin`
+#### 17、分享插件（第三方改） `https://github.com/boboxiaodd/SocialSharing-PhoneGap-Plugin`
 # 重写插件
 
 #### 1、iOS本地目录管理： `https://github.com/boboxiaodd/cordova-plugin-www`
