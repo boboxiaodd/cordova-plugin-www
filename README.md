@@ -30,6 +30,7 @@
 #### 14、SQLite插件（第三方）`cordova-sqlite-storage`
 #### 15、剪切板插件（第三方）`cordova-clipboard-api`
 #### 16、活体检测（第三方改）`https://github.com/boboxiaodd/alive-cordova-plugin`
+#### 17、分享插件 `cordova-plugin-x-socialsharing`
 # 重写插件
 
 #### 1、iOS本地目录管理： `https://github.com/boboxiaodd/cordova-plugin-www`
