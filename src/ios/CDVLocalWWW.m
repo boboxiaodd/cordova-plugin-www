@@ -40,6 +40,10 @@
     }else{
         _hud.mode = MBProgressHUDModeIndeterminate;
     }
+    _hud.bezelView.style = MBProgressHUDBackgroundStyleSolidColor;
+    _hud.bezelView.color = [UIColor lightGrayColor];
+    _hud.label.textColor = [UIColor whiteColor];
+
     _hud.label.text = [options objectForKey:@"title"] ?: @"加载中...";
 }
 - (void)setProgress:(CDVInvokedUrlCommand *)command
