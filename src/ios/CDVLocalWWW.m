@@ -1,10 +1,10 @@
 #import <Cordova/CDV.h>
 #import "CDVLocalWWW.h"
 #import "SSZipArchive.h"
-#import <MBProgressHUD/MBProgressHUD.h>
+#import <JGProgressHUD/JGProgressHUD.h>
 
 @interface CDVLocalWWW()
-@property (nonatomic,strong) MBProgressHUD* hud;
+@property (nonatomic,strong) JGProgressHUD* hud;
 @end
 
 @implementation CDVLocalWWW
@@ -27,35 +27,32 @@
 //进度条
 - (void)showProgress:(CDVInvokedUrlCommand *)command
 {
-    if(_hud) return;
     NSDictionary *options = [command.arguments objectAtIndex: 0];
-    _hud = [MBProgressHUD showHUDAddedTo:self.viewController.view animated:YES];
-    _hud.removeFromSuperViewOnHide = YES;
-    _hud.completionBlock = ^{
-        self->_hud = nil;
-    };
     BOOL is_progress = [[options valueForKey:@"is_progress"] boolValue];
+    NSString * title = [options objectForKey:@"title"] ?: @"加载中...";
+    _hud = [[JGProgressHUD alloc] init];
+    _hud.textLabel.text = title;
     if(is_progress){
-        _hud.mode = MBProgressHUDModeDeterminate;
+        _hud.detailTextLabel.text = @"0% 完成";
+        _hud.indicatorView = [[JGProgressHUDPieIndicatorView alloc] init];
+        _hud.progress = 0.0f;
     }else{
-        _hud.mode = MBProgressHUDModeIndeterminate;
+        _hud.indicatorView = [[JGProgressHUDIndeterminateIndicatorView alloc] init];
     }
-    _hud.bezelView.style = MBProgressHUDBackgroundStyleSolidColor;
-    _hud.bezelView.color = [UIColor lightGrayColor];
-    _hud.label.textColor = [UIColor whiteColor];
-
-    _hud.label.text = [options objectForKey:@"title"] ?: @"加载中...";
+    _hud.style = JGProgressHUDStyleLight;
+    [_hud showInView:self.viewController.view];
 }
 - (void)setProgress:(CDVInvokedUrlCommand *)command
 {
     if(!_hud) return;
     NSDictionary *options = [command.arguments objectAtIndex: 0];
     _hud.progress = [[options objectForKey:@"progress"] floatValue] ?: 0.0;
+    _hud.detailTextLabel.text = [NSString stringWithFormat:@"%.0f%@ 完成",_hud.progress * 100,@"%"];
 }
 - (void)hideProgress:(CDVInvokedUrlCommand *)command
 {
     if(!_hud) return;
-    [_hud hideAnimated:YES];
+    [_hud dismiss];
 }
 
 -(void) goSetting:(CDVInvokedUrlCommand *)command
