@@ -27,6 +27,7 @@
 //进度条
 - (void)showProgress:(CDVInvokedUrlCommand *)command
 {
+    if(_hud) return;
     NSDictionary *options = [command.arguments objectAtIndex: 0];
     BOOL is_progress = [[options valueForKey:@"is_progress"] boolValue];
     NSString * title = [options objectForKey:@"title"] ?: @"加载中...";
@@ -53,6 +54,7 @@
 {
     if(!_hud) return;
     [_hud dismiss];
+    _hud = nil;
 }
 
 -(void) goSetting:(CDVInvokedUrlCommand *)command
