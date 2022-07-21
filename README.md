@@ -24,7 +24,7 @@
 #### 8、Keyboard （第三方）`cordova-plugin-ionic-keyboard`
 #### 9、对话框 (官方) `cordova-plugin-dialogs`
 #### 10、状态栏 (官方) `cordova-plugin-statusbar`
-#### 11、推送插件（第三方）`cordova-plugin-apns-push`
+#### 11、推送插件（第三方改）`https://github.com/boboxiaodd/cordova-plugin-apns-push`
 #### 12、视频播放器 (第三方改) `https://github.com/boboxiaodd/cordova-plugin-streaming-media`
 #### 13、IDFA/AAID (第三方）`cordova-plugin-idfa`
 #### 14、SQLite插件（第三方）`cordova-sqlite-storage`
