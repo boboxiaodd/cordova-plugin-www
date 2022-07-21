@@ -29,7 +29,7 @@
                 <source url="https://github.com/CocoaPods/Specs.git"/>
             </config>
             <pods use-frameworks="true">
-                <pod name="SVProgressHUD" />
+                <pod name="JGProgressHUD" />
             </pods>
         </podspec>
     </platform>
