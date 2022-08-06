@@ -103,8 +103,8 @@ cordova plugin add https://github.com/boboxiaodd/cordova-plugin-zapp --variable 
 ```
 #### 9、视频播放器（已重写）`https://github.com/boboxiaodd/cordova-plugin-videoplayer`
 
-#### 10、actionsheet（已重写）`https://github.com/boboxiaodd/cordova-plugin-alertview`
+#### 10、actionsheet（已重写） `https://github.com/boboxiaodd/cordova-plugin-alertview`
 依赖 `LEEAlert`
 
-### 11、QRCode (已重写) `https://github.com/boboxiaodd/cordova-plugin-qrcode`
+### 11、QRCode (已重写)  `https://github.com/boboxiaodd/cordova-plugin-qrcode`
 依赖 `SGQRCode`
