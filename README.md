@@ -24,13 +24,14 @@
 #### 8、Keyboard （第三方）`cordova-plugin-ionic-keyboard`
 #### 9、对话框 (官方) `cordova-plugin-dialogs`
 #### 10、状态栏 (官方) `cordova-plugin-statusbar`
-#### 11、推送插件（第三方）`cordova-plugin-apns-push`
+#### 11、推送插件（第三方改）`https://github.com/boboxiaodd/cordova-plugin-apns-push`
 #### 12、视频播放器 (第三方改) `https://github.com/boboxiaodd/cordova-plugin-streaming-media`
 #### 13、IDFA/AAID (第三方）`cordova-plugin-idfa`
 #### 14、SQLite插件（第三方）`cordova-sqlite-storage`
 #### 15、剪切板插件（第三方）`cordova-clipboard-api`
 #### 16、活体检测（第三方改）`https://github.com/boboxiaodd/alive-cordova-plugin`
 #### 17、分享插件（第三方改） `https://github.com/boboxiaodd/SocialSharing-PhoneGap-Plugin`
+#### 18、定位插件 (第三方） `cordova-plugin-geolocation`
 # 重写插件
 
 #### 1、iOS本地目录管理： `https://github.com/boboxiaodd/cordova-plugin-www`
@@ -102,5 +103,8 @@ cordova plugin add https://github.com/boboxiaodd/cordova-plugin-zapp --variable 
 ```
 #### 9、视频播放器（已重写）`https://github.com/boboxiaodd/cordova-plugin-videoplayer`
 
-#### 10、actionsheet（已重写）`https://github.com/boboxiaodd/cordova-plugin-alertview`
+#### 10、actionsheet（已重写） `https://github.com/boboxiaodd/cordova-plugin-alertview`
 依赖 `LEEAlert`
+
+#### 11、QRCode (已重写)  `https://github.com/boboxiaodd/cordova-plugin-qrcode`
+依赖 `SGQRCode`
