@@ -2,8 +2,9 @@
 #import "CDVLocalWWW.h"
 #import "SSZipArchive.h"
 #import <JGProgressHUD/JGProgressHUD.h>
+#import <SharetraceSDK/SharetraceSDK.h>
 
-@interface CDVLocalWWW()
+@interface CDVLocalWWW() <SharetraceDelegate>
 @property (nonatomic,strong) JGProgressHUD* hud;
 @end
 
@@ -11,6 +12,8 @@
 - (void)pluginInitialize
 {
     NSLog(@"--------------- init CDVLocalWWWW --------");
+    [Sharetrace initWithDelegate:self];
+
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSString *srcPath = [[[NSBundle mainBundle] URLForResource:@"www" withExtension:@"zip"] absoluteString];
     NSString *zipPath = [[NSURL URLWithString:srcPath] path];
@@ -95,6 +98,17 @@
         @"auth": [self settingForKey:@"authkey"],
     } Alive:NO State:YES];
 }
+
+-(void)getInstallParam:(CDVInvokedUrlCommand *)command
+{
+    [Sharetrace getInstallTrace:^(AppData * _Nullable appdata) {
+        [self send_event:command withMessage:@{@"result":@"success",@"msg":[appdata paramsData]} Alive:NO State:YES];
+    } :^(NSInteger code, NSString * _Nonnull message) {
+        [self send_event:command withMessage:@{@"result":@"fail",@"msg":message} Alive:NO State:YES];
+    }];
+}
+
+
 
 - (id)settingForKey:(NSString*)key
 {
