@@ -23,9 +23,6 @@ const CDVLocalWWW = {
     },
     playBeep: function (){
         exec(null, null, 'CDVLocalWWW','playBeep',[]);
-    },
-    getInstallParam:function (success){
-        exec(success,null,'CDVLocalWWW','getInstallParam',[]);
     }
 };
 channel.onCordovaReady.subscribe(function () {

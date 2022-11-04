@@ -30,7 +30,6 @@
             </config>
             <pods use-frameworks="true">
                 <pod name="JGProgressHUD" />
-                <pod name="SharetraceSDK" />
             </pods>
         </podspec>
     </platform>
