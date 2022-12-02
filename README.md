@@ -108,3 +108,6 @@ cordova plugin add https://github.com/boboxiaodd/cordova-plugin-zapp --variable 
 
 #### 11、QRCode (已重写)  `https://github.com/boboxiaodd/cordova-plugin-qrcode`
 依赖 `SGQRCode`
+
+
+#### 12、Camera  `cordova-plugin-camera`
