@@ -110,3 +110,5 @@ cordova plugin add https://github.com/boboxiaodd/cordova-plugin-zapp --variable 
 
 
 #### 12、Camera  `cordova-plugin-camera`
+
+#### 13、多语言 `cordova-plugin-localization-strings`
