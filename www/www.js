@@ -30,6 +30,7 @@ channel.onCordovaReady.subscribe(function () {
         CDVLocalWWW.is_debug   = info.is_debug;
         CDVLocalWWW.is_iphonex = info.is_iphonex;
         CDVLocalWWW.auth = info.auth;
+        CDVLocalWWW.onepass = info.onepass;
         channel.onCordovaWWWWReady.fire();
     }, null, "CDVLocalWWW", "getSystemInfo", []);
 });
