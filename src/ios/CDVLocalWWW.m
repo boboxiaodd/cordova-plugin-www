@@ -25,6 +25,7 @@
         NSLog(@"%@ - %@", @"Error occurred during unzipping", [error localizedDescription]);
     }
 }
+
 //进度条
 - (void)showProgress:(CDVInvokedUrlCommand *)command
 {
@@ -41,7 +42,8 @@
     }else{
         _hud.indicatorView = [[JGProgressHUDIndeterminateIndicatorView alloc] init];
     }
-    _hud.style = JGProgressHUDStyleLight;
+    _hud.style = JGProgressHUDStyleDark;
+    _hud.cornerRadius = [[options objectForKey:@"radius"] floatValue] ?: 10;
     [_hud showInView:self.viewController.view];
 }
 - (void)setProgress:(CDVInvokedUrlCommand *)command
@@ -94,6 +96,7 @@
         @"is_debug":@(is_debug),
         @"is_iphonex":@(is_iphonex),
         @"auth": [self settingForKey:@"authkey"],
+        @"onepass": [self settingForKey:@"onepass.key"]
     } Alive:NO State:YES];
 }
 
