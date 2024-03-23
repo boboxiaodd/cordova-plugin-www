@@ -6,6 +6,7 @@ const CDVLocalWWW = {
     auth:"",
     is_debug:false,
     is_iphonex:true,
+    onepass: "",
     showProgress :function (options){
         exec(null, null, 'CDVLocalWWW','showProgress',[options]);
     },
