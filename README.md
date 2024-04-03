@@ -112,3 +112,5 @@ cordova plugin add https://github.com/boboxiaodd/cordova-plugin-zapp --variable 
 #### 12、Camera  `cordova-plugin-camera`
 
 #### 13、多语言 `cordova-plugin-localization-strings`
+
+#### 14、一键登录 `cordova plugin add @yidun/quickpass-plugin-cordova`
