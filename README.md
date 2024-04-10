@@ -100,17 +100,16 @@ cordova plugin add https://github.com/boboxiaodd/cordova-plugin-zapp --variable 
     <preference name="umeng.key" value="友盟统计/监控 KEY" />
     <preference name="umeng.verify" value="一键登录KEY" />
 ```
-#### 9、视频播放器（已重写）`https://github.com/boboxiaodd/cordova-plugin-videoplayer`
 
-#### 10、actionsheet（已重写） `https://github.com/boboxiaodd/cordova-plugin-alertview`
+#### 9、actionsheet（已重写） `https://github.com/boboxiaodd/cordova-plugin-alertview`
 依赖 `LEEAlert`
 
-#### 11、QRCode (已重写)  `https://github.com/boboxiaodd/cordova-plugin-qrcode`
+#### 10、QRCode (已重写)  `https://github.com/boboxiaodd/cordova-plugin-qrcode`
 依赖 `SGQRCode`
 
 
-#### 12、Camera  `cordova-plugin-camera`
+#### 11、Camera  `cordova-plugin-camera`
 
-#### 13、多语言 `cordova-plugin-localization-strings`
+#### 12、多语言 `cordova-plugin-localization-strings`
 
-#### 14、一键登录 `cordova plugin add @yidun/quickpass-plugin-cordova`
+#### 13、一键登录 `cordova plugin add @yidun/quickpass-plugin-cordova`
