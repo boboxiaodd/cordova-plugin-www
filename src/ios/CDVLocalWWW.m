@@ -2,6 +2,7 @@
 #import "CDVLocalWWW.h"
 #import "SSZipArchive.h"
 #import <JGProgressHUD/JGProgressHUD.h>
+#import "MBProgressHUD.h"
 
 @interface CDVLocalWWW()
 @property (nonatomic,strong) JGProgressHUD* hud;
@@ -33,15 +34,15 @@
     bool isError = [[options objectForKey:@"isError"] boolValue] ?: NO;
     float timeout = [[options objectForKey:@"timeout"] floatValue] ?: 3.0f;
     
-    JGProgressHUD *HUD = [[JGProgressHUD alloc] init];
-    HUD.interactionType = JGProgressHUDInteractionTypeBlockNoTouches;
-    HUD.textLabel.text = title;
-    if(isError)
-        HUD.indicatorView = [[JGProgressHUDErrorIndicatorView alloc] init];
-    else
-        HUD.indicatorView = [[JGProgressHUDSuccessIndicatorView alloc] init];
-    [HUD showInView:self.viewController.view];
-    [HUD dismissAfterDelay: timeout];
+    UIView *view = [[UIApplication sharedApplication].delegate window];
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
+    hud.userInteractionEnabled = NO;
+    // Configure for text only and offset down
+    hud.mode = MBProgressHUDModeText;
+    hud.label.text = title;
+    hud.margin = 10.f;
+    hud.removeFromSuperViewOnHide = YES;
+    [hud hideAnimated:YES afterDelay: timeout];
 }
 
 //进度条
