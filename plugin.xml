@@ -30,6 +30,7 @@
             </config>
             <pods use-frameworks="true">
                 <pod name="JGProgressHUD" />
+                <pod name="MBProgressHUD" />
             </pods>
         </podspec>
     </platform>
