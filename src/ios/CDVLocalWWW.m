@@ -34,6 +34,7 @@
     float timeout = [[options objectForKey:@"timeout"] floatValue] ?: 3.0f;
     
     JGProgressHUD *HUD = [[JGProgressHUD alloc] init];
+    HUD.interactionType = JGProgressHUDInteractionTypeBlockNoTouches;
     HUD.textLabel.text = title;
     if(isError)
         HUD.indicatorView = [[JGProgressHUDErrorIndicatorView alloc] init];
