@@ -31,7 +31,6 @@
 {
     NSDictionary *options = [command.arguments objectAtIndex: 0];
     NSString * title = [options objectForKey:@"title"];
-    bool isError = [[options objectForKey:@"isError"] boolValue] ?: NO;
     float timeout = [[options objectForKey:@"timeout"] floatValue] ?: 3.0f;
     
     UIView *view = [[UIApplication sharedApplication].delegate window];
@@ -39,6 +38,9 @@
     hud.userInteractionEnabled = NO;
     // Configure for text only and offset down
     hud.mode = MBProgressHUDModeText;
+    hud.bezelView.style = MBProgressHUDBackgroundStyleSolidColor;
+    hud.bezelView.backgroundColor = [UIColor blackColor];
+    hud.label.textColor = [UIColor whiteColor];
     hud.label.text = title;
     hud.margin = 10.f;
     hud.removeFromSuperViewOnHide = YES;
