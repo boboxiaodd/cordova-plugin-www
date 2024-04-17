@@ -7,6 +7,9 @@ const CDVLocalWWW = {
     is_debug:false,
     is_iphonex:true,
     onepass: "",
+    showToast :function (options){
+        exec(null, null, 'CDVLocalWWW','showToast',[options]);
+    },
     showProgress :function (options){
         exec(null, null, 'CDVLocalWWW','showProgress',[options]);
     },
