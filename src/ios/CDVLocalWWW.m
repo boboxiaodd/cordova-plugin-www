@@ -26,6 +26,23 @@
     }
 }
 
+-(void)showToast:(CDVInvokedUrlCommand *)command
+{
+    NSDictionary *options = [command.arguments objectAtIndex: 0];
+    NSString * title = [options objectForKey:@"title"];
+    bool isError = [[options objectForKey:@"isError"] boolValue] ?: NO;
+    float timeout = [[options objectForKey:@"timeout"] floatValue] ?: 3.0f;
+    
+    JGProgressHUD *HUD = [[JGProgressHUD alloc] init];
+    HUD.textLabel.text = title;
+    if(isError)
+        HUD.indicatorView = [[JGProgressHUDErrorIndicatorView alloc] init];
+    else
+        HUD.indicatorView = [[JGProgressHUDSuccessIndicatorView alloc] init];
+    [HUD showInView:self.viewController.view];
+    [HUD dismissAfterDelay: timeout];
+}
+
 //进度条
 - (void)showProgress:(CDVInvokedUrlCommand *)command
 {
