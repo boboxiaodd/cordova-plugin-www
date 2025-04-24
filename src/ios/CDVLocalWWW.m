@@ -1,10 +1,10 @@
 #import <Cordova/CDV.h>
 #import "CDVLocalWWW.h"
 #import "SSZipArchive.h"
-#import "MBProgressHUD.h"
+#import <JGProgressHUD/JGProgressHUD.h>
 
 @interface CDVLocalWWW()
-@property (nonatomic,strong) MBProgressHUD* hud;
+@property (nonatomic,strong) JGProgressHUD* hud;
 @end
 
 @implementation CDVLocalWWW
@@ -33,25 +33,30 @@
     NSDictionary *options = [command.arguments objectAtIndex: 0];
     BOOL is_progress = [[options valueForKey:@"is_progress"] boolValue];
     NSString * title = [options objectForKey:@"title"] ?: @"加载中...";
-    
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.viewController.view animated:YES];
+    _hud = [[JGProgressHUD alloc] init];
+    _hud.textLabel.text = title;
     if(is_progress){
-        hud.progress = 0.0f;
-        hud.mode = MBProgressHUDModeAnnularDeterminate;
+        _hud.detailTextLabel.text = @"0% 完成";
+        _hud.indicatorView = [[JGProgressHUDPieIndicatorView alloc] init];
+        _hud.progress = 0.0f;
+    }else{
+        _hud.indicatorView = [[JGProgressHUDIndeterminateIndicatorView alloc] init];
     }
-    hud.label.text = title;
+    _hud.style = JGProgressHUDStyleDark;
+    _hud.cornerRadius = [[options objectForKey:@"radius"] floatValue] ?: 10;
+    [_hud showInView:self.viewController.view];
 }
 - (void)setProgress:(CDVInvokedUrlCommand *)command
 {
     if(!_hud) return;
     NSDictionary *options = [command.arguments objectAtIndex: 0];
     _hud.progress = [[options objectForKey:@"progress"] floatValue] ?: 0.0;
-//    _hud.detailTextLabel.text = [NSString stringWithFormat:@"%.0f%@ 完成",_hud.progress * 100,@"%"];
+    _hud.detailTextLabel.text = [NSString stringWithFormat:@"%.0f%@ 完成",_hud.progress * 100,@"%"];
 }
 - (void)hideProgress:(CDVInvokedUrlCommand *)command
 {
     if(!_hud) return;
-    [_hud hideAnimated:YES];
+    [_hud dismiss];
     _hud = nil;
 }
 
