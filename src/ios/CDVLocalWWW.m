@@ -101,6 +101,14 @@
 }
 
 
+//是否允许截屏
+- (void)enableScreenShot:(CDVInvokedUrlCommand *)command
+{
+    NSDictionary *options = [command.arguments objectAtIndex: 0];
+    CDVViewController * vc = (CDVViewController *)self.viewController;
+    vc->rootView.secureTextEntry = [[options valueForKey:@"enable"] boolValue];
+}
+
 
 - (id)settingForKey:(NSString*)key
 {
