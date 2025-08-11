@@ -28,8 +28,8 @@ const CDVLocalWWW = {
     playBeep: function (){
         exec(null, null, 'CDVLocalWWW','playBeep',[]);
     },
-    enableScreenShot: function(success,options){
-        exec(success, null, 'CDVLocalWWW','enableScreenShot',[options]);
+    enableScreenShot: function(options){
+        exec(null, null, 'CDVLocalWWW','enableScreenShot',[options]);
     }
 };
 channel.onCordovaReady.subscribe(function () {
