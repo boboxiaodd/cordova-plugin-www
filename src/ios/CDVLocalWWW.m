@@ -1,10 +1,10 @@
 #import <Cordova/CDV.h>
 #import "CDVLocalWWW.h"
 #import "SSZipArchive.h"
-#import <JGProgressHUD/JGProgressHUD.h>
+#import <SVProgressHUD/SVProgressHUD.h>
 
 @interface CDVLocalWWW()
-@property (nonatomic,strong) JGProgressHUD* hud;
+@property (nonatomic) BOOL is_progress_show;
 @end
 
 @implementation CDVLocalWWW
@@ -24,40 +24,40 @@
     } else {
         NSLog(@"%@ - %@", @"Error occurred during unzipping", [error localizedDescription]);
     }
+    _is_progress_show = NO;
 }
 
 //进度条
 - (void)showProgress:(CDVInvokedUrlCommand *)command
 {
-    if(_hud) return;
+    if(_is_progress_show) return;
     NSDictionary *options = [command.arguments objectAtIndex: 0];
     BOOL is_progress = [[options valueForKey:@"is_progress"] boolValue];
     NSString * title = [options objectForKey:@"title"] ?: @"加载中...";
-    _hud = [[JGProgressHUD alloc] init];
-    _hud.textLabel.text = title;
     if(is_progress){
-        _hud.detailTextLabel.text = @"0% 完成";
-        _hud.indicatorView = [[JGProgressHUDPieIndicatorView alloc] init];
-        _hud.progress = 0.0f;
+        [SVProgressHUD showProgress:0.0f status:title];
     }else{
-        _hud.indicatorView = [[JGProgressHUDIndeterminateIndicatorView alloc] init];
+        [SVProgressHUD showWithStatus:title];
     }
-    _hud.style = JGProgressHUDStyleDark;
-    _hud.cornerRadius = [[options objectForKey:@"radius"] floatValue] ?: 10;
-    [_hud showInView:self.viewController.view];
+    
+    
 }
 - (void)setProgress:(CDVInvokedUrlCommand *)command
 {
-    if(!_hud) return;
+    if(!_is_progress_show) return;
     NSDictionary *options = [command.arguments objectAtIndex: 0];
-    _hud.progress = [[options objectForKey:@"progress"] floatValue] ?: 0.0;
-    _hud.detailTextLabel.text = [NSString stringWithFormat:@"%.0f%@ 完成",_hud.progress * 100,@"%"];
+    float progress = [[options objectForKey:@"progress"] floatValue] ?: 0.0;
+    [SVProgressHUD showProgress:progress];
 }
 - (void)hideProgress:(CDVInvokedUrlCommand *)command
 {
-    if(!_hud) return;
-    [_hud dismiss];
-    _hud = nil;
+    if(!_is_progress_show) return;
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        // time-consuming task
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [SVProgressHUD dismiss];
+        });
+    });
 }
 
 -(void) goSetting:(CDVInvokedUrlCommand *)command
@@ -88,15 +88,14 @@
     #ifdef DEBUG
         is_debug = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK  messageAsBool:(true)];
     #endif
-    CGFloat safeBottom =  UIApplication.sharedApplication.keyWindow.safeAreaInsets.bottom;
+    CGFloat safeBottom = self.viewController.view.safeAreaInsets.bottom;
     if(safeBottom > 0.0){
         is_iphonex = true;
     }
     [self send_event:command withMessage:@{
         @"is_debug":@(is_debug),
         @"is_iphonex":@(is_iphonex),
-        @"auth": [self settingForKey:@"authkey"],
-        @"onepass": [self settingForKey:@"onepass.key"]
+        @"auth": [self settingForKey:@"authkey"]
     } Alive:NO State:YES];
 }
 
