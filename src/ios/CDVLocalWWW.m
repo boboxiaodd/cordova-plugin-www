@@ -31,32 +31,30 @@
 - (void)showProgress:(CDVInvokedUrlCommand *)command
 {
     if(_is_progress_show) return;
+    _is_progress_show = YES;
     NSDictionary *options = [command.arguments objectAtIndex: 0];
     BOOL is_progress = [[options valueForKey:@"is_progress"] boolValue];
-    NSString * title = [options objectForKey:@"title"] ?: @"加载中...";
+    NSString * title = [options objectForKey:@"title"] ?: [NSString stringWithFormat:@"0 %@...", NSLocalizedString(@"处理完成",@"")];
     if(is_progress){
         [SVProgressHUD showProgress:0.0f status:title];
     }else{
         [SVProgressHUD showWithStatus:title];
     }
-    
-    
 }
 - (void)setProgress:(CDVInvokedUrlCommand *)command
 {
     if(!_is_progress_show) return;
     NSDictionary *options = [command.arguments objectAtIndex: 0];
     float progress = [[options objectForKey:@"progress"] floatValue] ?: 0.0;
-    [SVProgressHUD showProgress:progress];
+    NSString * title = [options objectForKey:@"title"] ?: [NSString stringWithFormat:@"%.0f%% %@...", round(progress*100), NSLocalizedString(@"处理完成",@"")];
+    [SVProgressHUD showProgress:progress status:title];
 }
 - (void)hideProgress:(CDVInvokedUrlCommand *)command
 {
     if(!_is_progress_show) return;
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        // time-consuming task
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [SVProgressHUD dismiss];
-        });
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [SVProgressHUD dismiss];
+        self->_is_progress_show = NO;
     });
 }
 
