@@ -1,9 +1,9 @@
 {
-    "name": "www",
+    "name": "cordova-plugin-www",
     "version": "0.0.1",
     "description": "Local WWW Manage",
     "cordova": {
-        "id": "www",
+        "id": "cordova-plugin-www",
         "platforms": [
             "ios"
         ]
