@@ -25,6 +25,24 @@
         NSLog(@"%@ - %@", @"Error occurred during unzipping", [error localizedDescription]);
     }
     _is_progress_show = NO;
+    __typeof(self) weakSelf = self;
+    NSOperationQueue *mainQueue = [NSOperationQueue mainQueue];
+    [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationUserDidTakeScreenshotNotification
+                                                      object:nil
+                                                       queue:mainQueue
+                                                  usingBlock:^(NSNotification *note) {
+                                                        dispatch_async(dispatch_get_main_queue(), ^{
+                                                            [weakSelf.commandDelegate evalJs:@"try{NotificationScreenshot();}catch(e){}"];
+                                                        });
+                                                  }];
+    [[NSNotificationCenter defaultCenter] addObserverForName:UIScreenCapturedDidChangeNotification
+                                                      object:nil
+                                                       queue:mainQueue
+                                                  usingBlock:^(NSNotification *note) {
+                                                        dispatch_async(dispatch_get_main_queue(), ^{
+                                                            [weakSelf.commandDelegate evalJs:@"try{NotificationCapture();}catch(e){}"];
+                                                        });
+                                                  }];
 }
 
 //进度条
@@ -103,7 +121,7 @@
 {
     NSDictionary *options = [command.arguments objectAtIndex: 0];
     CDVViewController * vc = (CDVViewController *)self.viewController;
-    vc->rootView.secureTextEntry = [[options valueForKey:@"enable"] boolValue];
+    vc->rootView.secureTextEntry = ![[options valueForKey:@"enable"] boolValue];
 }
 
 
