@@ -111,7 +111,8 @@
     [self send_event:command withMessage:@{
         @"is_debug":@(is_debug),
         @"is_iphonex":@(is_iphonex),
-        @"auth": [self settingForKey:@"authkey"]
+        @"auth": [self settingForKey:@"authkey"],
+        @"onepass":[self settingForKey:@"onepass.key"]
     } Alive:NO State:YES];
 }
 
