@@ -98,7 +98,7 @@ cordova plugin add https://github.com/boboxiaodd/cordova-plugin-zapp --variable 
 
 #### 26、Camera  `cordova-plugin-camera`
 
-#### 27、一键登录 `cordova plugin add @yidun/quickpass-plugin-cordova`
+#### 27、一键登录 `https://github.com/boboxiaodd/cordova-plugin-quickpass`
 > [!WARNING]
 > 需要覆盖 NTESQuickPassModule.m 代码.
 
