@@ -28,11 +28,11 @@
             <config>
                 <source url="https://github.com/CocoaPods/Specs.git"/>
             </config>
-            <pods use-frameworks="true">
-                <pod name="SVProgressHUD" spec="2.3.1" />
+            <pods>
+                <pod name="SVProgressHUD" />
             </pods>
         </podspec>
     </platform>
-    <dependency id="cordova-plugin-file" version="8.0.1" />
-    <dependency id="cordova-plugin-zip" version="3.1.0" />
+    <dependency id="cordova-plugin-file" />
+    <dependency id="cordova-plugin-zip" />
 </plugin>
