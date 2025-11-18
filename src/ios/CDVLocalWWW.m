@@ -25,6 +25,7 @@
         NSLog(@"%@ - %@", @"Error occurred during unzipping", [error localizedDescription]);
     }
     _is_progress_show = NO;
+    [SVProgressHUD setDefaultMaskType: SVProgressHUDMaskTypeBlack];
     __typeof(self) weakSelf = self;
     NSOperationQueue *mainQueue = [NSOperationQueue mainQueue];
     [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationUserDidTakeScreenshotNotification
